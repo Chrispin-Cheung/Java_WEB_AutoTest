@@ -1,0 +1,34 @@
+package onlineretailers;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class Reg {
+	public void Register(String rvuName,String rvuPwd)
+	{
+		File f = new File("/Users/poptest/JavaProject/HelloWorld/src/fileoperation/users.txt");
+		//按规定格式拼接字符串，注意添加回车符
+		boolean isuNameexist = false;
+		
+		
+		
+		
+		
+		
+		String userInfo = rvuName + " " + rvuPwd +"\n";
+		//格式化字符串
+		String userInfofm = String.format("%s %s \n", rvuName,rvuPwd);
+		System.out.print(userInfofm);
+		//以追加方式（true）打开方式，不加true为覆盖方式打开
+		try {
+			FileWriter fw = new FileWriter(f,true);
+			fw.write(userInfo);
+			fw.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}

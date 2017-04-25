@@ -1,0 +1,80 @@
+package onlineretailers;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class Reg {
+	public void Register(String rvuName,String rvuPwd)
+	{
+		File f = new File("/Users/poptest/JavaProject/HelloWorld/src/fileoperation/users.txt");
+		//按规定格式拼接字符串，注意添加回车符
+		boolean isuNameexist = false;
+		if (f.exists())
+		{
+			System.out.println("文件已存在");
+			try {
+				//打开文件（FileReader类），放入内存缓冲区 
+				//注意FileReader只能一个字符一个字符的读，而BufferedReader却存在一个按行读的方法
+				BufferedReader br = new BufferedReader(new FileReader(f));
+				String str;
+				//把读出的字符串赋值，判断当前行是否为空
+				try {
+						while((str = br.readLine())!= null)
+						{	
+							//换行输出文件中每行的内容
+							String str1 = str.trim();
+							String array[] = str1.split(" ");
+							if (array[0].equals(rvuName))
+							{
+								isuNameexist = true;
+								break;//用户名已注册，退出
+							}
+						}
+						if (!isuNameexist)
+						{
+							System.out.println("用户名已注册！");
+						}else
+						{
+							
+							
+						}
+						br.close();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					System.out.println("文件读入内存缓冲区失败");
+					e.printStackTrace();
+			}
+		}
+		else
+		{
+			System.out.println("文件不存在");
+		}
+		
+		
+		
+		
+		
+		String userInfo = rvuName + " " + rvuPwd +"\n";
+		//格式化字符串
+		String userInfofm = String.format("%s %s \n", rvuName,rvuPwd);
+		System.out.print(userInfofm);
+		//以追加方式（true）打开方式，不加true为覆盖方式打开
+		try {
+			FileWriter fw = new FileWriter(f,true);
+			fw.write(userInfo);
+			fw.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}

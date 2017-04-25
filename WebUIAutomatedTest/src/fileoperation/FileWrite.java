@@ -9,7 +9,7 @@ public class FileWrite {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		File f = new File("/Users/poptest/JavaProject/HelloWorld/src/fileoperation/users.txt");
+		File f = new File("/Users/poptest/Java_WEB_AutoTest/WebUIAutomatedTest/src/fileoperation/users.txt");
 		Scanner sc = new Scanner(System.in);
 		System.out.println("请输入用户名：");
 		String uName = sc.next();

@@ -1,3 +1,7 @@
+/*
+ * login with Scanner get the input ,without parameter
+ */
+
 package onlineretailers;
 
 import java.io.BufferedReader;
@@ -9,8 +13,9 @@ import java.util.Scanner;
 
 public class Log {
 	
-	public void login()
+	public boolean login()
 	{
+		boolean success = false;
 		boolean flag = false;
 		Scanner sc = new Scanner(System.in);
 		System.out.println("请输入用户名：");
@@ -18,7 +23,7 @@ public class Log {
 		System.out.println("请输入密码：");
 		String uPwd = sc.next();
 		
-		File fp = new File("/Users/poptest/JavaProject/HelloWorld/src/fileoperation/users.txt");
+		File fp = new File("/Users/poptest/Java_WEB_AutoTest/WebUIAutomatedTest/src/fileoperation/users.txt");
 		if (fp.exists())
 		{
 			System.out.println("文件已存在");
@@ -46,6 +51,7 @@ public class Log {
 						}else
 						{
 							System.out.println("登录成功！");
+							success = true;
 						}
 						br.close();
 				} catch (IOException e) {
@@ -62,7 +68,10 @@ public class Log {
 		{
 			System.out.println("文件不存在");
 		}
-		sc.close();
+		//sc.close();	
+		/*Scanner在整个main注册流程中，只能有一个，不能随便关闭，关闭后只能出现
+					Exception in thread "main" java.util.NoSuchElementException*/
+		return success;
 	}
 	public void logout()
 	{
