@@ -17,13 +17,15 @@ public class Onlineretailers {
 		String mode = sc.next();
 		if(mode.equals("A") || mode.equals("a"))
 		{	
+			//定义标志符 flag 区别是否输入登录信息三次
 			boolean flag = false;
+			//定义标志符 isLogin   区别是否登录成功
 			boolean isLogin = false;
 			//用户名或密码超过三次，判断用户
 			for(int i = 0; i < 3;i ++)
 			{
 				//判断登录是否成功
-				if (isLogin == false)
+				if (!isLogin)
 				{
 					System.out.println("＊＊＊＊登陆（A）＊＊＊＊");
 					LogAdv login = new LogAdv();
@@ -32,24 +34,20 @@ public class Onlineretailers {
 					System.out.println("请输入密码：");
 					String uPwd = sc.next();
 					isLogin = login.login(uName,uPwd);
-					System.out.println(isLogin);
-					if(isLogin == true) 
+					//System.out.println(isLogin);
+					if(isLogin) 
 					{
 						flag = true;
-					}
-				}else{
-					break;
-				}
-				
+						//System.out.println("a");
+						break;
+					}			
+				}	
 			}
 			//三次登录都失败，抛出相应的提示信息
 			if (flag == false)
 			{
 				System.out.println("用户操作错误超过3次");
 			}
-			System.out.println("＊＊＊＊登陆（A）＊＊＊＊");
-			Log login = new Log();
-			login.login();
 		}else if (mode.equals("B") || mode.equals("b") )
 		{
 			System.out.println("＊＊＊＊注册（B）＊＊＊＊");
