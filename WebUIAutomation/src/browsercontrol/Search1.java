@@ -1,8 +1,9 @@
 /*
  * 打开浏览器，访问百度首页，搜索“人民的名义”
  */
-package BaiduSearch;
+package browsercontrol;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 
@@ -18,12 +19,15 @@ public class Search1 {
 		mySleep(1000);
 		
 		//获取页面元素
+		//通过页面按钮来进行搜索
 		//dr.findElementById("search-key").sendKeys("人民的名义");
-		dr.findElementByXPath(".//*[@id='search-key']").sendKeys("人民的名义");;
-		//dr.findElementById("search-submit").click();
-		dr.findElementByXPath(".//*[@id='search-submit']").click();
-		//dr.findElementByClassName("btn-engine").click();
+//		dr.findElementByXPath(".//*[@id='search-key']").sendKeys("人民的名义");
+//		//dr.findElementById("search-submit").click();
+//		dr.findElementByXPath(".//*[@id='search-submit']").click();
+//		//dr.findElementByClassName("btn-engine").click();
 		
+		//输入人民的名义，和利用Keys键盘输入回车键，完成搜索过程
+		dr.findElementByXPath(".//*[@id='search-key']").sendKeys("人民的名义"+Keys.ENTER);
 		//点击后，访问页面，设置响应时间
 		mySleep(2000);
 		dr.close();
