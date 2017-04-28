@@ -1,5 +1,5 @@
 /*
- * 浏览器多窗口切换
+ * 浏览器多窗口切换 跳转到网易邮箱登录页面，登录邮箱
  */
 
 package browsercontrol;
@@ -7,7 +7,7 @@ package browsercontrol;
 
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class SwitchWindows {
+public class SwitchWindows2 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -26,12 +26,7 @@ public class SwitchWindows {
 		open.findElementByLinkText("火狐主页").click();
 		tls.mySleep(1000);
 		
-		//获取当前窗口的handle
-		//String currentHandle = open.getWindowHandle();
-		//System.out.println(currentHandle);
-		
-		//visit the www.163.com
-		//open.findElementByCssSelector("a[title = '网易']").click();
+		//search  网易邮箱 
 		open.findElementByXPath("html/body/div/div[3]/div/div[6]/div/div[2]/div[1]/div[1]/div[1]/div[1]/ul/li[5]/a").click();
 		//open.findElementByLinkText("网易").click();
 		tls.mySleep(5000);
