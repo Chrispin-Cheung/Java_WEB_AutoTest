@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+	<login>
+		<username>iotrookie</username>
+		<password>pk2012114AI</password>
+		<expect>iotrookie</expect>
+		<username1>iotrookie</username1>
+		<password1></password1>
+		<expect1>请输入密码</expect1>
+	</login>
+</node>

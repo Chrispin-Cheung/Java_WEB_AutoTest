@@ -12,7 +12,6 @@ public class Business extends Common{
 		String actValue;
 		try{
 			actValue = locatePosition("XPath",".//*[@id='global_login']/div[1]/a[1]").getText();
-			myWait(2000);
 		}
 		catch(Exception e) 
 		{
