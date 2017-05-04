@@ -24,10 +24,11 @@ public class ReadXML {
 		for(int i=0;i<n1.getLength();i++){
 			//通过输入二级标签名称获得二级标签的值
 			String username=doc.getElementsByTagName("username").item(i).getFirstChild().getNodeValue();
-			String password=doc.getElementsByTagName("password").item(i).getFirstChild().getNodeValue();
+			String password=doc.getElementsByTagName("password").item(i).getFirstChild().getTextContent();
+//			String password=doc.getElementsByTagName("password").item(i).getFirstChild().getNodeValue();
 			String expect=doc.getElementsByTagName("expect").item(i).getFirstChild().getNodeValue();
 			result = username+" "+password+" "+expect;
 		}
 		return result;
-	}
+	} 
 }

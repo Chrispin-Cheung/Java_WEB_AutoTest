@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <node>
 	<login>
-		<username>iotrookie</username>
-		<password>pk2012114AI</password>
-		<expect>iotrookie</expect>
+		<username0>iotrookie</username0>
+		<password0>pk2012114AI</password0>
+		<expect0>iotrookie</expect0>
 		<username1>iotrookie</username1>
 		<password1></password1>
 		<expect1>请输入密码</expect1>
+		<username2></username2>
+		<password2>pk2012114AI</password2>
+		<expect2>请输入账号</expect2>
+		<username3></username3>
+		<password3></password3>
+		<expect3>请输入账号和密码</expect3>
+		<username4>18811181160</username4>
+		<password4>pk2012114AI</password4>
+		<expect4>iotrookie</expect4>
+		<username4>rsmb2008@163.com</username4>
+		<password4>pk2012114AI</password4>
+		<expect4>账号和密码不匹配，请重新输入</expect4>
+		
 	</login>
 </node>

@@ -3,12 +3,11 @@ import utils.Common;
 
 public class Business extends Common{
 	public void Login(String username,String password,String expect)
-	{
-		myWait(2000);		
+	{	
 		locatePosition("XPath",".//*[@id='un']").sendKeys(username);
 		locatePosition("XPath",".//*[@id='pwd']").sendKeys(password);
 		locatePosition("XPath",".//*[@id='login_button']").click();
-		myWait(2000);
+		myWait(5000);
 		String actValue;
 		try{
 			actValue = locatePosition("XPath",".//*[@id='global_login']/div[1]/a[1]").getText();
@@ -17,14 +16,16 @@ public class Business extends Common{
 		{
 			actValue = locatePosition("XPath","//*[@id='error_tips']").getText();
 		}
-		
 		if (actValue.equals(expect))
 		{
 			System.out.println("TestCase Pass");
 		}
 		else{
 			System.out.println("TestCase fail");
-		}
-		
+		}	
+	}
+	public void switchToLoginPage()
+	{
+		locatePosition("XPath", ".//*[@id='global_unlogin']/a[1]").click();
 	}
 }

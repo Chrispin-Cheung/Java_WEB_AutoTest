@@ -7,6 +7,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 
 import org.w3c.dom.Document;
+//import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
 
@@ -28,11 +29,24 @@ public class DataReadXML {
 		
 		for (int i = 0; i < n1.getLength(); i++ )
 		{
-			result = doc.getElementsByTagName(SecondTagName).item(i).getFirstChild().getNodeValue();
+			//访问item的节点的节点值，如果节点的内容为空，会返回null，输入的时候，会导致代码报错，或跳过
+			//result = doc.getElementsByTagName(SecondTagName).item(i).getFirstChild().getNodeValue();
+			result = doc.getElementsByTagName(SecondTagName).item(i).getTextContent();
 		}
-		
-		
-		
+		//树形结构来读取访问各个元素值
+//		Element root=doc.getDocumentElement();
+//      //
+//		NodeList childnode = root.getElementsByTagName(FirstTagName);
+//		NodeList resnode = childnode.item(0).getChildNodes();
+//		for(int i=0;i<resnode.getLength();i++)
+//		{
+//			if(resnode.item(i).getNodeName().equals(SecondTagName))
+//			{
+//				result=resnode.item(i).getTextContent();
+//				break;
+//			}
+//		}
 		return result;
 	}
+	
 }
