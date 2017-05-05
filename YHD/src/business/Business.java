@@ -24,8 +24,25 @@ public class Business extends Common{
 			System.out.println("TestCase fail");
 		}	
 	}
+	//use to assert in the testngCase
+	public String Login(String username,String password)
+	{	
+		locatePosition("XPath",".//*[@id='un']").sendKeys(username);
+		locatePosition("XPath",".//*[@id='pwd']").sendKeys(password);
+		locatePosition("XPath",".//*[@id='login_button']").click();
+		myWait(5000);
+		String actValue;
+		try{
+			actValue = locatePosition("XPath",".//*[@id='global_login']/div[1]/a[1]").getText();
+		}
+		catch(Exception e) 
+		{
+			actValue = locatePosition("XPath","//*[@id='error_tips']").getText();
+		}
+		return actValue;
+	}
 	public void switchToLoginPage()
 	{
-		locatePosition("XPath", ".//*[@id='global_unlogin']/a[1]").click();
+		locatePosition("XPath",".//*[@id='global_unlogin']/a[1]").click();
 	}
 }
